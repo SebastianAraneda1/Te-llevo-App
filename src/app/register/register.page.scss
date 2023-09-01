@@ -1,0 +1,24 @@
+#titulo{
+    color: #3880ff;
+}
+
+h1{
+    color: goldenrod;
+    text-align: center;
+}
+
+#registro{
+    text-align: center;
+
+    .error{
+        color: rgb(228, 69, 69);
+    }
+
+    .input{
+        color: goldenrod;
+    }
+
+    .boton{
+        color: black;
+    }
+}

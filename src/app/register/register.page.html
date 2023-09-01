@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title id="titulo">Registro</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="registro" class="container mt-5">
+    <h1>Crea tu cuenta</h1>
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating" class="input">Usuario</ion-label>
+        <ion-input required [(ngModel)]="formRegistro.nombre" type="text"></ion-input>
+        <span *ngIf='showErrorNombre' class="error">Nombre erroneo</span>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label position="floating" class="input">Email</ion-label>
+        <ion-input [(ngModel)]="formRegistro.email" type="email"></ion-input>
+        <span *ngIf='showErrorEmail' class="error">Email erroneo</span>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label position="floating" class="input">Contraseña</ion-label>
+        <ion-input required [(ngModel)]="formRegistro.password" type="password"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label position="floating" class="input">Repetir Contraseña</ion-label>
+        <ion-input required [(ngModel)]="formRegistro.rpassword" type="password"></ion-input>
+        <span *ngIf='showErrorPass' class="error">Las contreñas no son iguales</span>
+      </ion-item>
+      <ion-item>
+        <ion-checkbox [(ngModel)]="acuerdo" slot="start"></ion-checkbox>
+        <ion-label>Acepto los términos y condiciones</ion-label>
+      </ion-item>
+      <ion-button (click)="registrar()" class="boton" [disabled]="!acuerdo">Crear cuenta</ion-button>
+    </ion-list>
+  </div>
+</ion-content>
