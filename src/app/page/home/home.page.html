@@ -4,13 +4,13 @@
       <ion-button class="boton" slot="end" [routerLink]="['/login']">Cerrar sesión</ion-button>
     </ion-buttons>
     <ion-title style="text-align: center;">
-      Bienvenid@ {{mensaje}}
+      Bienvenid@, {{mensaje}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-button (click)="verStorage()">Ver datos Storage</ion-button>
+  <!--<ion-button (click)="verStorage()">Ver datos Storage</ion-button>-->
   <br>
   <ion-button>
     <ion-card>
@@ -21,7 +21,7 @@
     </ion-card>
   </ion-button>
   <ion-button>
-    <ion-card>
+    <ion-card [routerLink]="['/pasajero']">
       <img src="assets/images/pasajero.svg">
       <ion-card-header>
         <ion-card-title class="imagenBoton">Pasajero</ion-card-title>

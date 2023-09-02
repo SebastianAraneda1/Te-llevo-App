@@ -5,7 +5,7 @@ import { PageProtegidaGuard } from './guards/page-protegida.guard';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    loadChildren: () => import('./page/home/home.module').then( m => m.HomePageModule),
     canActivate: [PageProtegidaGuard]
   },
   {
@@ -15,21 +15,28 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./page/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'register',
-    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+    loadChildren: () => import('./page/register/register.module').then( m => m.RegisterPageModule)
   },
   {
     path: 'not-found',
-    loadChildren: () => import('./not-found/not-found.module').then( m => m.NotFoundPageModule)
+    loadChildren: () => import('./page/home/not-found/not-found.module').then( m => m.NotFoundPageModule)
   },
+ 
+  {
+    path: 'pasajero',
+    loadChildren: () => import('./page/pasajero/pasajero.module').then( m => m.PasajeroPageModule)
+  },
+
   {
     path: '**',
     redirectTo: 'not-found',
     pathMatch: 'full'
   },
+
 ];
 
 @NgModule({
