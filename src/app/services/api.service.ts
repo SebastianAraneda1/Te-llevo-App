@@ -9,25 +9,25 @@ export class ApiService {
 
   constructor(private http:HttpClient) { }
 
-  urlApi = "https://duoc.grupodevcon.cl/API/v2/";
-  token = "100"
+  urlApi = "Aqui va una api";
+  token = "aqui va un token"
 
-  obtenerAsesores(): Observable<any>
+  obtener(): Observable<any>
   {
-    return this.http.get(this.urlApi + "obtenerAsesores/" + this.token).pipe();
+    return this.http.get(this.urlApi + "aqui va un endpoint/" + this.token).pipe();
   }
 
-  modificarAsesor()
-  {
-
-  }
-
-  crearAsesor()
+  modificar()
   {
 
   }
 
-  eliminarAsesor()
+  crear()
+  {
+
+  }
+
+  eliminar()
   {
 
   }

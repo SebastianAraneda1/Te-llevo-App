@@ -35,12 +35,4 @@ export class HomePage {
     console.log("El nombre guardado es: " + nombre);
   }
 
-  mostrarAsesores()
-  {
-    this.api.obtenerAsesores().subscribe((respuesta)=>{
-      console.log(respuesta.result)
-      this.listaAsesores = respuesta.result;
-    })
-  }
-
 }

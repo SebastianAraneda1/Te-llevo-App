@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
+    <ion-buttons>
+      <ion-button class="boton" slot="end" [routerLink]="['/login']">Cerrar sesión</ion-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;">
       Bienvenid@ {{mensaje}}
     </ion-title>
   </ion-toolbar>
@@ -9,18 +12,20 @@
 <ion-content>
   <ion-button (click)="verStorage()">Ver datos Storage</ion-button>
   <br>
-  <ion-button [routerLink]="['/login']">Cerrar sesión</ion-button>
-  <br>
-  <ion-button color="danger" (click)="mostrarAsesores()">Mostrar Asesores</ion-button>
-
-  <ion-list>
-    <ion-item>
-      <ion-label>Rut: </ion-label>
-      <ion-label>Nombre Completo: </ion-label>
-    </ion-item>
-    <ion-item *ngFor="let asesor of listaAsesores">
-      <ion-label> {{asesor.rut}}</ion-label>
-      <ion-label> {{asesor.nombre_completo}}</ion-label>
-    </ion-item>
-  </ion-list>
+  <ion-button>
+    <ion-card>
+      <img src="assets/images/conductor.svg">
+      <ion-card-header>
+        <ion-card-title class="imagenBoton">Conductor</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </ion-button>
+  <ion-button>
+    <ion-card>
+      <img src="assets/images/pasajero.svg">
+      <ion-card-header>
+        <ion-card-title class="imagenBoton">Pasajero</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </ion-button>
 </ion-content>
