@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons>
-      <ion-button class="boton" slot="end" [routerLink]="['/login']">Cerrar sesión</ion-button>
+      <ion-button class="boton" [routerLink]="['/login']">Cerrar sesión</ion-button>
     </ion-buttons>
     <ion-title style="text-align: center;">
       Bienvenid@, {{mensaje}}
@@ -13,7 +13,7 @@
   <!--<ion-button (click)="verStorage()">Ver datos Storage</ion-button>-->
   <br>
   <ion-button>
-    <ion-card>
+    <ion-card [routerLink]="['/conductor']">
       <img src="assets/images/conductor.svg">
       <ion-card-header>
         <ion-card-title class="imagenBoton">Conductor</ion-card-title>

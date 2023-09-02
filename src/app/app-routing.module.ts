@@ -32,11 +32,15 @@ const routes: Routes = [
   },
 
   {
+    path: 'conductor',
+    loadChildren: () => import('./page/conductor/conductor.module').then( m => m.ConductorPageModule)
+  },
+
+  {
     path: '**',
     redirectTo: 'not-found',
     pathMatch: 'full'
   },
-
 ];
 
 @NgModule({
