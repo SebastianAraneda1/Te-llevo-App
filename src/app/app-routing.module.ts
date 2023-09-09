@@ -41,6 +41,11 @@ const routes: Routes = [
     redirectTo: 'not-found',
     pathMatch: 'full'
   },
+  {
+    path: 'pasajero',
+    loadChildren: () => import('./page/pasajero/pasajero.module').then( m => m.PasajeroPageModule)
+  },
+
 ];
 
 @NgModule({
