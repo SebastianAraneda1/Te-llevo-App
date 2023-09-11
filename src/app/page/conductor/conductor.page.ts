@@ -10,10 +10,11 @@ export class ConductorPage implements OnInit {
 
   formViaje = {
     destino: "",
-    cantidad: "",
-    monto: 0,
     patente: ""
   }
+
+  cantidad!:number;
+  monto!:number;
 
   showErrorDestino:boolean = false;
   showErrorCantidad:boolean = false;
@@ -23,22 +24,61 @@ export class ConductorPage implements OnInit {
   constructor(private route:Router) { }
 
   ngOnInit() {
+    
   }
 
   viaje() {
-    let destino = false;
-    let cantidad = false;
-    let monto = false;
-    let patente = false;
+    
+    let destinoOK = false;
+    let cantidadOK = false;
+    let montoOK = false;
+    let patenteOK = false;
 
-    const patenteRegexActual = /^[A-Z]{4}\d{2}$/;
-    const patenteRefexAnterior = /^[A-Z]{2}\d{4}$/ 
+    const patenteRegex = /^[A-Z]{2,4}\d{2,4}$/;
 
     if(this.formViaje.destino.length > 3){
-      destino = true;
+      destinoOK = true;
+      this.showErrorDestino = false;
     }else{
-      destino = false;
+      this.showErrorDestino = true;
     }
+    
+
+    if(this.cantidad > 0){
+      cantidadOK = true;
+      this.showErrorCantidad = false;
+    }else{
+      this.showErrorCantidad = true;
+    }
+    if(this.monto > 0){
+      montoOK = true;
+      this.showErrorMonto = false;
+    }else{
+      this.showErrorMonto = true;
+    }
+    
+    if(this.formViaje.patente.match(patenteRegex)){
+      patenteOK = true;
+      this.showErrorPatente = false;
+    }else{
+      this.showErrorPatente = true;
+    }
+
+    if(destinoOK && cantidadOK && montoOK && patenteOK){
+
+      let datosEnviar:NavigationExtras = {
+        queryParams:{
+          direccion: this.formViaje.destino,
+          cantidad: this.cantidad,
+          monto: this.monto,
+          patente: this.formViaje.patente
+        }
+      }
+
+      this.route.navigate(['/viaje'], datosEnviar);
+
+    }
+
   }
 
 }
