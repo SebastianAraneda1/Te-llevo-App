@@ -23,7 +23,7 @@ const routes: Routes = [
   },
   {
     path: 'not-found',
-    loadChildren: () => import('./page/home/not-found/not-found.module').then( m => m.NotFoundPageModule)
+    loadChildren: () => import('./page/not-found/not-found.module').then( m => m.NotFoundPageModule)
   },
  
   {
@@ -37,13 +37,17 @@ const routes: Routes = [
   },
 
   {
+    path: 'pasajero',
+    loadChildren: () => import('./page/pasajero/pasajero.module').then( m => m.PasajeroPageModule)
+  },
+  {
+    path: 'viaje',
+    loadChildren: () => import('./page/viaje/viaje.module').then( m => m.ViajePageModule)
+  },
+  {
     path: '**',
     redirectTo: 'not-found',
     pathMatch: 'full'
-  },
-  {
-    path: 'pasajero',
-    loadChildren: () => import('./page/pasajero/pasajero.module').then( m => m.PasajeroPageModule)
   },
 
 ];

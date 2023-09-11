@@ -11,26 +11,25 @@
   <ion-list>
     <ion-item>
       <ion-label position="floating" class="input">Ingrese hacia donde irá</ion-label>
-      <ion-input [ngModel]="formViaje.destino" type="text"></ion-input>
+      <ion-input [(ngModel)]="formViaje.destino" type="text"></ion-input>
       <span *ngIf="showErrorDestino" style="color: red;">Destino invalido</span>
     </ion-item>
     <ion-item>
       <ion-label position="floating" class="input">Ingrese cantidad de pasajeros</ion-label>
-      <ion-input [ngModel]="formViaje.cantidad" type="number"></ion-input>
+      <ion-input [(ngModel)]="cantidad" type="number"></ion-input>
       <span *ngIf="showErrorCantidad" style="color: red;">Cantidad invalida</span>
     </ion-item>
     <ion-item>
       <ion-label position="floating" class="input">Ingrese monto a cobrar</ion-label>
-      <ion-input [ngModel]="formViaje.monto" type="number">$</ion-input>
+      <ion-input [(ngModel)]="monto" type="number"></ion-input>
       <span *ngIf="showErrorMonto" style="color: red;">Monto invalido</span>
     </ion-item>
     <ion-item>
       <ion-label position="floating" class="input">Ingrese patente de vehículo</ion-label>
-      <ion-input [ngModel]="formViaje.patente" type="text"></ion-input>
+      <ion-input [(ngModel)]="formViaje.patente" type="text"></ion-input>
       <span *ngIf="showErrorPatente" style="color: red;">Patente invalida</span>
     </ion-item>
   </ion-list>
-  <img class="ruta" src="../../../assets/images/Ruta.jpeg">
   <br>
-  <ion-button shape="block">Comenzar viaje</ion-button>
+  <ion-button (click)="viaje()" shape="block">Comenzar viaje</ion-button>
 </ion-content>
