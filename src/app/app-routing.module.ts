@@ -23,7 +23,7 @@ const routes: Routes = [
   },
   {
     path: 'not-found',
-    loadChildren: () => import('./page/home/not-found/not-found.module').then( m => m.NotFoundPageModule)
+    loadChildren: () => import('./page/not-found/not-found.module').then( m => m.NotFoundPageModule)
   },
  
   {
@@ -37,30 +37,3 @@ const routes: Routes = [
   },
 
   {
-    path: 'finalizacion',
-    loadChildren: () => import('./page/finalizacion/finalizacion.module').then( m => m.FinalizacionPageModule)
-  },
-
-  {
-    path: 'pasajero',
-    loadChildren: () => import('./page/pasajero/pasajero.module').then( m => m.PasajeroPageModule)
-  },
-
-  {
-    path: '**',
-    redirectTo: 'not-found',
-    pathMatch: 'full'
-  }
-  
-  
-
-
-];
-
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-  ],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
