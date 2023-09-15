@@ -37,31 +37,3 @@ const routes: Routes = [
   },
 
   {
-    path: 'pasajero',
-    loadChildren: () => import('./page/pasajero/pasajero.module').then( m => m.PasajeroPageModule)
-  },
-  {
-    path: 'viaje',
-    loadChildren: () => import('./page/viaje/viaje.module').then( m => m.ViajePageModule)
-  },
-  {
-    path: 're-password',
-    loadChildren: () => import('./page/re-password/re-password.module').then( m => m.RePasswordPageModule)
-  },
-  {
-    path: '**',
-    redirectTo: 'not-found',
-    pathMatch: 'full'
-  },
-
-
-
-];
-
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-  ],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
