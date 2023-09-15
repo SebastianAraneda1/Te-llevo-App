@@ -37,14 +37,23 @@ const routes: Routes = [
   },
 
   {
-    path: '**',
-    redirectTo: 'not-found',
-    pathMatch: 'full'
+    path: 'finalizacion',
+    loadChildren: () => import('./page/finalizacion/finalizacion.module').then( m => m.FinalizacionPageModule)
   },
+
   {
     path: 'pasajero',
     loadChildren: () => import('./page/pasajero/pasajero.module').then( m => m.PasajeroPageModule)
   },
+
+  {
+    path: '**',
+    redirectTo: 'not-found',
+    pathMatch: 'full'
+  }
+  
+  
+
 
 ];
 
