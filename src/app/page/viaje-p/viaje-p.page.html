@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Viaje comenzado!</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Su viaje ha comenzado!!</ion-card-title>
+      <ion-card-subtitle>Por favor maneje con cuidado</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-label>Dirección: {{destinoDato}}</ion-label>
+      <br>
+      <ion-label>Cantidad de pasajeros: {{cantidadDato}}</ion-label>
+      <br>
+      <ion-label>Monto a cobrar: ${{montoDato}}</ion-label>
+      <br>
+      <ion-label>Patente: {{patenteDato}}</ion-label>
+    </ion-card-content>
+  </ion-card>
+  <ion-img class="imagen" src="../../../assets/images/Ruta.jpeg"></ion-img>
+  <br>
+  <ion-button class="boton" [routerLink]="['/finalizacion']">Finalizar Viaje</ion-button>
+</ion-content>
