@@ -2,7 +2,10 @@
     height: 80vh;
 }
 
-.boton{
-    background-color: rgb(235, 106, 106);
-    width: 23vh;
+.container{
+    text-align: center;
+    .boton{
+        background-color: rgb(235, 106, 106);
+        width: 23vh;
+    }
 }
