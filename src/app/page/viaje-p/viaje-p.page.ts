@@ -11,11 +11,9 @@ export class ViajePPage implements OnInit {
 
   constructor(private rutaActiva:ActivatedRoute) { 
     this.rutaActiva.queryParams.subscribe(params =>{
-      if(params['direccion'] && params['cantidad'] && params['monto'] && params['patente']){
-        this.destinoDato = params['direccion'];
-        this.cantidadDato = params['cantidad'];
-        this.montoDato = params['monto'];
-        this.patenteDato = params['patente']
+      if(params['final'] && params['partida']){
+        this.finalDato = params['final'];
+        this.partidaDato = params['partida'];
       }
     })
   }
@@ -23,8 +21,6 @@ export class ViajePPage implements OnInit {
   ngOnInit() {
   }
 
-  destinoDato:string = "";
-  cantidadDato:number = 0;
-  montoDato:number= 0;
-  patenteDato:string = "";
+  finalDato:string = "";
+  partidaDato:string = "";
 }
