@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { SAutosService } from 'src/app/services/sautos.service';
 
 @Component({
   selector: 'app-conductor',
@@ -21,7 +22,10 @@ export class ConductorPage implements OnInit {
   showErrorMonto:boolean = false;
   showErrorPatente:boolean = false;
 
-  constructor(private route:Router) { }
+  constructor(
+    private route:Router,
+    private serviceAuto:SAutosService
+    ) { }
 
   ngOnInit() {
     
@@ -75,10 +79,23 @@ export class ConductorPage implements OnInit {
         }
       }
 
+      this.agregarAuto();
       this.route.navigate(['/viaje'], datosEnviar);
 
     }
 
   }
 
+  agregarAuto(){
+    let post = {
+      patente: this.formViaje.patente,
+      destino: this.formViaje.destino,
+      precio: this.monto,
+      cantPasajeros: this.cantidad
+    };
+    this.serviceAuto.agregarAuto(post).subscribe({
+      next: (response) => {console.log(response)},
+      error: (error) => {console.log(error)}
+    });
+  }
 }

@@ -8,22 +8,36 @@
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <ion-label class="destinoUser" position="floating">Ingrese Destino</ion-label>
-    <ion-input [(ngModel)]="formViaje.destino" class="destinoUsuario" type="text" placeholder="Ingrese su destino"></ion-input>
-    <span *ngIf="showErrorDestino" style="color: red;">Destino invalido</span>
-  </ion-item>
-  <ion-item>
-    <ion-label class="destinoUser" position="floating">Punto de Partida</ion-label>
-    <ion-input  [(ngModel)]="formViaje.partida" class="destinoUsuario" type="text" placeholder="Ingrese partida"></ion-input>
-    <span *ngIf="showErrorPartida" style="color: red;">Destino invalido</span>
-  </ion-item>
 
-  <img src="assets/images/rutaPasajero.jpg">
+  <h1>Bienvenido pasajero, a continuación verá un listado de vehiculos disponibles con su información correspondiente</h1>
 
+  <div *ngFor="let autos of Autos" class="container card">
+    <ion-card>
+      <div class="card-header">
+        <h2> Patente: {{autos.patente}}</h2>
+      </div>
+      <div class="card-body">
+    
+        <div style="display: flex; align-items: center;">
+          
+          <div class="contenido" style="margin-left: 10px;">
+            <h5 class="info">Destino: {{autos.destino}}</h5>
+            <h5 class="info">Cantidad de pasajeros: {{autos.cantPasajeros}}</h5>
+            <h5 class="info">Precio: ${{autos.precio}}</h5>
+    
+          </div>
+          
+        </div>
 
-  <ion-button (click)="viaje()" class="boton">Solicitar</ion-button>
+        <ion-button (click)="viaje()" class="boton">Solicitar</ion-button>
 
-  <ion-button class="BotonC" color="Danger" [routerLink]="['/home']">Cancelar</ion-button>
+      </div>
+    </ion-card>
+
+  </div>
+
+  <ion-button routerLink="/home" color="danger" expand="block" shape="round">
+    Cancelar
+  </ion-button>
 
 </ion-content>
