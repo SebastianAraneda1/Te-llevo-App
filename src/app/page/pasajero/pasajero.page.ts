@@ -1,57 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { IAutos } from 'src/app/interfaces/iautos';
+import { SAutosService } from 'src/app/services/sautos.service';
 
 @Component({
   selector: 'app-pasajero',
   templateUrl: './pasajero.page.html',
   styleUrls: ['./pasajero.page.scss'],
 })
-export class PasajeroPage implements OnInit {
+export class PasajeroPage {
 
-  formViaje = {
-    destino: "",
-    partida: ""
+  isModalOpen = false;
+
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
   }
-  showErrorDestino:boolean = false;
-  showErrorPartida:boolean = false;
 
-  constructor(private route:Router) { }
+  Autos: Array<IAutos> = new Array<IAutos>();
 
-  ngOnInit() {
+  ngOnInit():void {
+    this.autoService.listarAutos().subscribe((autos)=> (this.Autos = autos));
   }
+
+  constructor(
+    private route:Router,
+    private autoService:SAutosService,
+    
+  ) { }
 
   viaje() {
-    
-    let destinoOK = false;
-    let partidaOk = false;
-
-    if(this.formViaje.destino.length > 3){
-      destinoOK = true;
-      this.showErrorDestino = false;
-    }else{
-      this.showErrorDestino = true;
-    }
-    
-    if(this.formViaje.partida.length > 3){
-      partidaOk = true;
-      this.showErrorPartida = false;
-    }else{
-      this.showErrorPartida = true;
-    }
-
-    if(destinoOK && partidaOk){
-
-      let datosEnviarPasajero:NavigationExtras = {
-        queryParams:{
-          final: this.formViaje.destino,
-          partida: this.formViaje.partida
-        }
-      }
-
-      this.route.navigate(['/viaje-p'], datosEnviarPasajero);
-
-    }
-
+    this.route.navigate(['/viaje-p']);
   }
 
 }

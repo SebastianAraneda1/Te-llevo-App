@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title style="text-align: center;">
-      Bienvenid@, {{mensaje}}
+      Bienvenid@, {{nombre}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -20,7 +20,7 @@
       </ion-card>
     </ion-button>
 
-    <ion-button>
+    <ion-button type="submit">
       <ion-card [routerLink]="['/pasajero']">
         <img src="assets/images/pasajero.svg">
         <ion-card-header>
@@ -30,5 +30,5 @@
     </ion-button>
   </div>
 
-  <ion-button class="boton" color="Danger" [routerLink]="['/login']">Cerrar sesión</ion-button>
+  <ion-button class="boton" color="Danger" (click)="cerrarSesion()">Cerrar sesión</ion-button>
 </ion-content> 

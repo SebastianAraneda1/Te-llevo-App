@@ -21,10 +21,6 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./page/register/register.module').then( m => m.RegisterPageModule)
   },
-  {
-    path: 'not-found',
-    loadChildren: () => import('./page/not-found/not-found.module').then( m => m.NotFoundPageModule)
-  },
  
   {
     path: 'pasajero',
@@ -61,10 +57,25 @@ const routes: Routes = [
     redirectTo: 'not-found',
     pathMatch: 'full'
   },
+  {
+    path: 'autos',
+    loadChildren: () => import('./page/auto/autos/autos.module').then( m => m.AutosPageModule)
+  },
+  {
+    path: 'eliminar-auto',
+    loadChildren: () => import('./page/auto/eliminar-auto/eliminar-auto.module').then( m => m.EliminarAutoPageModule)
+  },
+  {
+    path: 'listar-autos',
+    loadChildren: () => import('./page/auto/listar-autos/listar-autos.module').then( m => m.ListarAutosPageModule)
+  },
+
+
+  {
+    path: 'not-found',
+    loadChildren: () => import('./page/not-found/not-found.module').then( m => m.NotFoundPageModule)
+  },
   
-
-
-
 ];
 
 @NgModule({

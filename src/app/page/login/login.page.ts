@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
+import { IUsuarios } from 'src/app/interfaces/iusuarios';
+import { SUsuariosService } from 'src/app/services/susuarios.service';
 
 @Component({
   selector: 'app-login',
@@ -9,21 +11,55 @@ import { Storage } from '@ionic/storage-angular';
 })
 export class LoginPage implements OnInit {
 
-  formLogin = {
-    nombre: "",
-    password: ""
-  }
+  public email = "";
+  public pass = "";
+
+  listaUsuarios = new Array<IUsuarios>();
+  existe = false;
 
   //Se le asigna un parametro al constructor para usar las rutas
-  constructor(private route:Router, private storage:Storage) { }
+  constructor(
+    private route:Router, 
+    private storage:Storage,
+    private uService: SUsuariosService
+    ) { }
 
   //El async permite el uso del await, que es hacer una promesa
   //es decir, antes de que la página cargue con sus funciones se realice la promesa antes
   async ngOnInit() {
-    await this.storage.create();
   }
 
-  async login()
+  ingreso(){
+
+    this.uService.getUsuarios().subscribe((usuarios:Array<IUsuarios>)=>{
+
+      this.listaUsuarios = usuarios;
+
+      if(this.listaUsuarios.length > 0){
+
+        this.listaUsuarios.forEach(usuario => {
+  
+          if(this.email === usuario.email && this.pass === usuario.contrasena){
+            this.existe = true;
+            console.log("Existe");
+            this.uService.usuario = usuario;
+            this.uService.setLogStatus(true);
+            this.route.navigate(['/home']);
+          }
+
+        });
+        if(!this.existe){
+          alert("Email o Contraseña incorrectos")
+        }
+      }
+
+    });
+  }
+  
+
+
+  
+  /*async login()
   {
 
     let user = this.storage.get("nombre");
@@ -52,6 +88,6 @@ export class LoginPage implements OnInit {
     }
 
 
-  }
+  }*/
 
 }
