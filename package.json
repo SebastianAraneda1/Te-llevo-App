@@ -10,7 +10,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "serverApi": "json-server --host 0.0.0.0 --port 3000 --watch data.json"
+    "serverApi": "json-server --host 0.0.0.0 --port 3000 --watch restData.js"
   },
   "private": true,
   "dependencies": {
