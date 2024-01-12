@@ -5,13 +5,13 @@ module.exports = function(){
                 id: 1,
                 nombre: "Alan",
                 contrasena: "1234a",
-                email: "alan@user.com"
+                email: "alan@duocuc.cl"
             },
             {
                 id: 2,
                 nombre: "Leno",
                 contrasena: "abcd",
-                email: "leno@user.com"
+                email: "leno@duocuc.cl"
             }
         ],
 
