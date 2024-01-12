@@ -7,7 +7,7 @@
 <ion-content [fullscreen]="true">
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Su viaje ha comenzado!!</ion-card-title>
+      <ion-card-title>Informacion del Viaje!!</ion-card-title>
       <ion-card-subtitle>Por favor maneje con cuidado</ion-card-subtitle>
     </ion-card-header>
   
@@ -21,7 +21,7 @@
       <ion-label>Patente: {{patenteDato}}</ion-label>
     </ion-card-content>
   </ion-card>
-  <ion-img class="imagen" src="../../../assets/images/Ruta.jpeg"></ion-img>
+  <div id="map"></div>
   <br>
   <div class="container">
     <ion-button class="boton" color="Danger" [routerLink]="['/home']">Finalizar Viaje</ion-button>
