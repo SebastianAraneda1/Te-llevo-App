@@ -37,7 +37,8 @@ export class RegisterPage implements OnInit {
     let emailOk = false;
     let passOk = false;
     
-    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    //const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    const regex = /^[a-zA-Z0-9._-]+@duocuc\.cl$/;
     const email = this.formRegistro.email;
     
     if(this.formRegistro.nombre.length >= 3 && this.formRegistro.nombre.length <= 10){
