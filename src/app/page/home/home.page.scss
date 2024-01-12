@@ -35,3 +35,31 @@
   background-color: rgb(235, 106, 106);
   width: 23vh;
 }
+
+@keyframes move-and-fade {
+  /* El título se mueve a la derecha hasta el 100% de su ancho */
+  55% {
+    transform: translateX(100%);
+    opacity: 0.0;
+  }
+  /* El título se vuelve semi-transparente */
+  80% {
+    opacity: 0.2;
+  }
+  /* El título se mueve a la izquierda hasta el -50% de su ancho */
+  75% {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  /* El título vuelve a su posición inicial */
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animation-title {
+  animation: move-and-fade 2.5s infinite;
+  /* Asumiendo que el título está centrado inicialmente */
+  transform: translateX(0);
+}
