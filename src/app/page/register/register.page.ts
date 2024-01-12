@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Storage } from '@ionic/storage-angular';
+import { SUsuariosService } from 'src/app/services/susuarios.service';
 
 @Component({
   selector: 'app-register',
@@ -22,10 +22,12 @@ export class RegisterPage implements OnInit {
     rpassword:""
   }
   
-  constructor(private storage:Storage, private route:Router) { }
+  constructor(
+    private route:Router,
+    private uService:SUsuariosService
+    ) { }
 
-  async ngOnInit() {
-    await this.storage.create();
+  ngOnInit() {
     
   }
   
@@ -67,11 +69,10 @@ export class RegisterPage implements OnInit {
     }
     
     if(nombreOk && emailOk && passOk){
-      alert('Registro correcto')
-      this.storage.set("nombre", this.formRegistro.nombre)
-      this.storage.set("contraseña", this.formRegistro.password)
-
+      this.crearUser();
+      alert('Usuario registrado con exito')
       this.redireccionarLogin();
+      
     }else{
       alert('Falta completar campos')
     }
@@ -79,6 +80,18 @@ export class RegisterPage implements OnInit {
   
   redireccionarLogin(){
     this.route.navigate(['/login']);
+  }
+
+  crearUser(){
+    let post = {
+      nombre: this.formRegistro.nombre,
+      contrasena: this.formRegistro.password,
+      email: this.formRegistro.email
+    };
+    this.uService.createUser(post).subscribe({
+      next: (response) => {console.log(response)},
+      error: (error) => {console.log(error)}
+    });
   }
 
 }
