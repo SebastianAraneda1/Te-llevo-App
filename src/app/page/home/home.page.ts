@@ -15,7 +15,8 @@ export class HomePage {
   //Se instancia uno o mas parametros en el constructor para poder usar una libreria con sus funciones
   constructor(
     private uService:SUsuariosService,
-    private route:Router
+    private route:Router,
+    private storage:Storage
     ) {}
 
     ngOnInit(){

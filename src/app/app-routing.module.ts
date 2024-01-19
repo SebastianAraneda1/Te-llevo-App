@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { PageProtegidaGuard } from './guards/page-protegida.guard';
+import { NoIngresadoGuard } from './guards/no-ingresado.guard';
+import { IngresadoGuard } from './guards/ingresado.guard';
 
 const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./page/home/home.module').then( m => m.HomePageModule),
-    canActivate: [PageProtegidaGuard]
+    canActivate: [NoIngresadoGuard]
   },
   {
     path: '',
@@ -24,21 +25,25 @@ const routes: Routes = [
  
   {
     path: 'pasajero',
-    loadChildren: () => import('./page/pasajero/pasajero.module').then( m => m.PasajeroPageModule)
+    loadChildren: () => import('./page/pasajero/pasajero.module').then( m => m.PasajeroPageModule),
+    canActivate: [NoIngresadoGuard]
   },
 
   {
     path: 'conductor',
-    loadChildren: () => import('./page/conductor/conductor.module').then( m => m.ConductorPageModule)
+    loadChildren: () => import('./page/conductor/conductor.module').then( m => m.ConductorPageModule),
+    canActivate: [NoIngresadoGuard]
   },
 
   {
     path: 'pasajero',
-    loadChildren: () => import('./page/pasajero/pasajero.module').then( m => m.PasajeroPageModule)
+    loadChildren: () => import('./page/pasajero/pasajero.module').then( m => m.PasajeroPageModule),
+    canActivate: [NoIngresadoGuard]
   },
   {
     path: 'viaje',
-    loadChildren: () => import('./page/viaje/viaje.module').then( m => m.ViajePageModule)
+    loadChildren: () => import('./page/viaje/viaje.module').then( m => m.ViajePageModule),
+    canActivate: [NoIngresadoGuard]
   },
   {
     path: 're-password',
@@ -46,11 +51,13 @@ const routes: Routes = [
   },
   {
     path: 'finalizacion',
-    loadChildren: () => import('./page/finalizacion/finalizacion.module').then( m => m.FinalizacionPageModule)
+    loadChildren: () => import('./page/finalizacion/finalizacion.module').then( m => m.FinalizacionPageModule),
+    canActivate: [NoIngresadoGuard]
   },
   {
     path: 'viaje-p',
-    loadChildren: () => import('./page/viaje-p/viaje-p.module').then( m => m.ViajePPageModule)
+    loadChildren: () => import('./page/viaje-p/viaje-p.module').then( m => m.ViajePPageModule),
+    canActivate: [NoIngresadoGuard]
   },
   {
     path: '**',

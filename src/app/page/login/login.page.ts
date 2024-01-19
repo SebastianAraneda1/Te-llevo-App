@@ -27,6 +27,7 @@ export class LoginPage implements OnInit {
   //El async permite el uso del await, que es hacer una promesa
   //es decir, antes de que la página cargue con sus funciones se realice la promesa antes
   async ngOnInit() {
+    await this.storage.create();
   }
 
   ingreso(){
@@ -45,6 +46,7 @@ export class LoginPage implements OnInit {
             this.uService.usuario = usuario;
             this.uService.setLogStatus(true);
             this.route.navigate(['/home']);
+            this.storage.set('Estado', 'ingresado')
           }
 
         });
