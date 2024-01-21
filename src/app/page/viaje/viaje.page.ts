@@ -51,11 +51,12 @@ export class ViajePage implements OnInit {
 
   constructor(private rutaActiva:ActivatedRoute) { 
     this.rutaActiva.queryParams.subscribe(params =>{
-      if(params['direccion'] && params['cantidad'] && params['monto'] && params['patente']){
+      if(params['direccion'] && params['cantidad'] && params['monto'] && params['patente'] && params['comuna']){
         this.destinoDato = params['direccion'];
         this.cantidadDato = params['cantidad'];
         this.montoDato = params['monto'];
-        this.patenteDato = params['patente']
+        this.patenteDato = params['patente'];
+        this.comunaDato = params['comuna'];
       }
     })
   }
@@ -101,4 +102,5 @@ export class ViajePage implements OnInit {
   cantidadDato:number = 0;
   montoDato:number= 0;
   patenteDato:string = "";
+  comunaDato:string = "";
 }
