@@ -28,7 +28,7 @@ module.exports = function(){
                 id: 2,
                 patente: "ABCD12",
                 destino: "Retonda Grecia",
-                comuna: "Grecia",
+                comuna: "Peñalolén",
                 cantPasajeros: 4,
                 precio:1500
             }

@@ -27,11 +27,10 @@
   --><label for="radio5">★</label>
 </p>
 
-<ion-button id="present-alert">Pagar</ion-button>
+<ion-button id="present-alert" [routerLink]="['/home']">Pagar</ion-button>
 <ion-alert
   trigger="present-alert"
   header="Ingrese monto a pagar"
   message="$0"
   [buttons]="alertButtons"
-  [routerLink]="['/home']"
 ></ion-alert>

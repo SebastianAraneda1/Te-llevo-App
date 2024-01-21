@@ -11,6 +11,13 @@
 
   <h1>Bienvenido pasajero, a continuación verá un listado de vehiculos disponibles con su información correspondiente</h1>
 
+  <ion-item>
+    <ion-label>Filtrar por comuna</ion-label>
+    <ion-select placeholder="Seleccione Comuna" [(ngModel)]="comunaFiltrada" (ionChange)="filtrarPorComuna()">
+      <ion-select-option *ngFor="let comuna of comunas">{{ comuna }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
   <div *ngFor="let autos of Autos" class="container card">
     <ion-card>
       <div class="card-header">
