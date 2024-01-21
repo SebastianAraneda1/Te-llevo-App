@@ -19,14 +19,16 @@ module.exports = function(){
             {
                 id: 1,
                 patente: "AA1234",
-                destino: "Madreselvas, Macul",
+                destino: "Madreselvas",
+                comuna: "Macul",
                 cantPasajeros: 2,
                 precio: 1000
             },
             {
                 id: 2,
                 patente: "ABCD12",
-                destino: "Retonda Grecia, Grecia",
+                destino: "Retonda Grecia",
+                comuna: "Grecia",
                 cantPasajeros: 4,
                 precio:1500
             }

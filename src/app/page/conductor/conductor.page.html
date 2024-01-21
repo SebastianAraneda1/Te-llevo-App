@@ -14,21 +14,33 @@
       <ion-input [(ngModel)]="formViaje.destino" type="text"></ion-input>
       <span *ngIf="showErrorDestino" style="color: red;">Destino invalido</span>
     </ion-item>
+
+    <ion-item>
+      <ion-label>Seleccione comuna</ion-label>
+      <ion-select placeholder="Seleccione Comuna" [(ngModel)]="formViaje.comuna">
+        <ion-select-option *ngFor="let comuna of comunas">{{ comuna }}</ion-select-option>
+      </ion-select>
+      <span *ngIf="showErrorComuna" style="color: red;">Seleccione una comuna</span>
+    </ion-item>
+
     <ion-item>
       <ion-label position="floating" class="input">Ingrese cantidad de pasajeros</ion-label>
       <ion-input [(ngModel)]="cantidad" type="number"></ion-input>
       <span *ngIf="showErrorCantidad" style="color: red;">Cantidad invalida</span>
     </ion-item>
+
     <ion-item>
       <ion-label position="floating" class="input">Ingrese monto a cobrar</ion-label>
       <ion-input [(ngModel)]="monto" type="number"></ion-input>
       <span *ngIf="showErrorMonto" style="color: red;">Monto invalido</span>
     </ion-item>
+
     <ion-item>
       <ion-label position="floating" class="input">Ingrese patente de vehículo</ion-label>
       <ion-input [(ngModel)]="formViaje.patente" type="text"></ion-input>
       <span *ngIf="showErrorPatente" style="color: red;">Patente invalida</span>
     </ion-item>
+
   </ion-list>
   <br>
 <ion-button (click)=" viaje()" shape="block">Comenzar viaje</ion-button> 

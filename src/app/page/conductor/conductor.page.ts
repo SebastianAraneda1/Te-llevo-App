@@ -11,7 +11,8 @@ export class ConductorPage implements OnInit {
 
   formViaje = {
     destino: "",
-    patente: ""
+    patente: "",
+    comuna: "",
   }
 
   cantidad!:number;
@@ -21,11 +22,68 @@ export class ConductorPage implements OnInit {
   showErrorCantidad:boolean = false;
   showErrorMonto:boolean = false;
   showErrorPatente:boolean = false;
+  showErrorComuna:boolean = false;
+
+  comunas: string[] = [
+    'Alhué',
+    'Buin',
+    'Calera de Tango',
+    'Cerrillos',
+    'Cerro Navia',
+    'Colina',
+    'Conchalí',
+    'Curacaví',
+    'El Bosque',
+    'El Monte',
+    'Estación Central',
+    'Huechuraba',
+    'Independencia',
+    'Isla de Maipo',
+    'La Cisterna',
+    'La Florida',
+    'La Granja',
+    'La Pintana',
+    'La Reina',
+    'Lampa',
+    'Las Condes',
+    'Lo Barnechea',
+    'Lo Espejo',
+    'Lo Prado',
+    'Macul',
+    'Maipú',
+    'María Pinto',
+    'Melipilla',
+    'Ñuñoa',
+    'Padre Hurtado',
+    'Paine',
+    'Pedro Aguirre Cerda',
+    'Peñaflor',
+    'Peñalolén',
+    'Pirque',
+    'Providencia',
+    'Pudahuel',
+    'Puente Alto',
+    'Quilicura',
+    'Quinta Normal',
+    'Recoleta',
+    'Renca',
+    'San Bernardo',
+    'San Joaquín',
+    'San José de Maipo',
+    'San Miguel',
+    'San Pedro',
+    'San Ramón',
+    'Santiago',
+    'Talagante',
+    'Tiltil',
+    'Vitacura'
+  ];
+
 
   constructor(
     private route:Router,
     private serviceAuto:SAutosService
-    ) { }
+    ) {}
 
   ngOnInit() {
     
@@ -37,6 +95,7 @@ export class ConductorPage implements OnInit {
     let cantidadOK = false;
     let montoOK = false;
     let patenteOK = false;
+    let comunaOk = false;
 
     const patenteRegex = /^[A-Z]{2,4}\d{2,4}$/;
 
@@ -68,11 +127,20 @@ export class ConductorPage implements OnInit {
       this.showErrorPatente = true;
     }
 
-    if(destinoOK && cantidadOK && montoOK && patenteOK){
+    if(this.formViaje.comuna.length > 1){
+      comunaOk = true;
+      this.showErrorComuna = false;
+    }else{
+      comunaOk = true;
+      this.showErrorComuna = true;
+    }
+
+    if(destinoOK && cantidadOK && montoOK && patenteOK && comunaOk){
 
       let datosEnviar:NavigationExtras = {
         queryParams:{
           direccion: this.formViaje.destino,
+          comuna: this.formViaje.comuna,
           cantidad: this.cantidad,
           monto: this.monto,
           patente: this.formViaje.patente
@@ -89,6 +157,7 @@ export class ConductorPage implements OnInit {
   agregarAuto(){
     let post = {
       patente: this.formViaje.patente,
+      comuna: this.formViaje.comuna,
       destino: this.formViaje.destino,
       precio: this.monto,
       cantPasajeros: this.cantidad
