@@ -4,7 +4,7 @@
   <ion-header>
 
     <ion-toolbar>
-      <ion-title>Bienvenid@, {{nombre}}</ion-title>
+      <ion-title class="animation-title">Bienvenid@, {{nombre}}</ion-title>
     </ion-toolbar>
 
   </ion-header>
@@ -16,10 +16,9 @@
     <ion-label class="full-width">{{email}}</ion-label>
   </ion-item>
 
-  <ion-content class="ion-padding">
-    <ion-item class="ion-text-center" lines="none" button (click)="cerrarSesion()">
-      <ion-label class="full-width">Cerrar Sesión</ion-label>
-    </ion-item> 
+  <ion-content style="margin-left: 10px;" class="ion-padding">
+    <ion-button class="ion-text-center btn btn-danger" lines="none" button (click)="cerrarSesion()">Cerrar Sesion
+    </ion-button> 
   </ion-content>
 </ion-menu>
  

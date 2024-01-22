@@ -59,7 +59,7 @@
 }
 
 .animation-title {
-  animation: move-and-fade 2.5s infinite;
+  animation: move-and-fade 2.5s 1;
   /* Asumiendo que el título está centrado inicialmente */
   transform: translateX(0);
 }

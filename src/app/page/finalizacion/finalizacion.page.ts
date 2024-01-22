@@ -6,7 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./finalizacion.page.scss'],
 })
 export class FinalizacionPage implements OnInit {
-  public alertButtons = ['Pagar'] 
+  public alertButtons = ['OK'];
+  public alertInputs = [
+    {
+      type: 'number',
+      placeholder: 'Monto',
+      min: 1,
+      max: 1000000000,
+    },
+  ];
 
   constructor() { }
 
