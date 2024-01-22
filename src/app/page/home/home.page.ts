@@ -11,6 +11,7 @@ import { SUsuariosService } from 'src/app/services/susuarios.service';
 export class HomePage {
   //Se instancia una variable para almacenar los datos que se traerán desde el login.
   nombre:string = "";
+  email:string="";
 
   //Se instancia uno o mas parametros en el constructor para poder usar una libreria con sus funciones
   constructor(
@@ -21,6 +22,7 @@ export class HomePage {
 
     ngOnInit(){
       this.nombre = this.uService.usuario.nombre;
+      this.email = this.uService.usuario.email
     }
 
     cerrarSesion(){

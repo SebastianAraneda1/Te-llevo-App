@@ -1,34 +1,61 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title class="animation-title" style="text-align: center;">
-      Bienvenid@, {{nombre}}
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
-  <!--<ion-button (click)="verStorage()">Ver datos Storage</ion-button>-->
-  <h3>Elija su rol a continuación:</h3>
-  <br>
-  <div class="container">
-    <ion-button>
-      <ion-card [routerLink]="['/conductor']">
-        <img src="assets/images/conductor.svg">
-        <ion-card-header>
-          <ion-card-title class="imagenBoton">Conductor</ion-card-title>
-        </ion-card-header>
-      </ion-card>
-    </ion-button>
+<!-- inplementacion de menu-->
+<ion-menu contentId="main-content">
+  <ion-header>
 
-    <ion-button type="submit">
-      <ion-card [routerLink]="['/pasajero']">
-        <img src="assets/images/pasajero.svg">
-        <ion-card-header>
-          <ion-card-title class="imagenBoton">Pasajero</ion-card-title>
-        </ion-card-header>
-      </ion-card>
-    </ion-button>
-  </div>
+    <ion-toolbar>
+      <ion-title>Bienvenid@, {{nombre}}</ion-title>
+    </ion-toolbar>
 
-  <ion-button class="boton" color="Danger" (click)="cerrarSesion()">Cerrar sesión</ion-button>
-</ion-content> 
+  </ion-header>
+  <ion-text class="ion-text-center" style="margin-top: 20px;">
+    <ion-icon name="person-outline" style="font-size: 5em;"></ion-icon>
+  </ion-text>
+
+  <ion-item class="ion-text-center" lines="none">
+    <ion-label class="full-width">{{email}}</ion-label>
+  </ion-item>
+
+  <ion-content class="ion-padding">
+    <ion-item class="ion-text-center" lines="none" button (click)="cerrarSesion()">
+      <ion-label class="full-width">Cerrar Sesión</ion-label>
+    </ion-item> 
+  </ion-content>
+</ion-menu>
+ 
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-content>
+    <!--<ion-button (click)="verStorage()">Ver datos Storage</ion-button>-->
+    <h3>Elija su rol a continuación:</h3>
+    <br>
+    <div class="container">
+      <ion-button>
+        <ion-card [routerLink]="['/conductor']">
+          <img src="assets/images/conductor.svg">
+          <ion-card-header>
+            <ion-card-title class="imagenBoton">Conductor</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-button>
+  
+      <ion-button type="submit">
+        <ion-card [routerLink]="['/pasajero']">
+          <img src="assets/images/pasajero.svg">
+          <ion-card-header>
+            <ion-card-title class="imagenBoton">Pasajero</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-button>
+    </div>
+  </ion-content> 
+</div>
